@@ -10,31 +10,45 @@
 
 <h1>Welcome {{ user.username }}!</h1>
 
-<h2>Records...</h2>
-{% if records %}
 
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Address</th>
+      <th scope="col">City</th>
+      <th scope="col">State</th>
+      <th scope="col">Zipcode</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    {% if records %}
 {% for record in records %}
-
-{{ record.id }}
-{{ record.date_created }}
-{{ record.first_name }}
-{{ record.last_name }}
-{{ record.email }}
-{{ record.phone_number }}
-{{ record.address}}
-{{ record.city }}
-{{ record.state }}
-{{ record.zip_code }}
-<br />
-
-<br />
-
+<tr>
+  <td>{{ record.id }}</td>
+  <td>{{ record.first_name }}
+  {{ record.last_name }}</td>
+  
+  <td>{{ record.email }}</td>
+  <td>{{ record.phone_number }}</td>
+  <td>{{ record.address}}</td>
+  <td>{{ record.city }}</td>
+  <td>{{ record.state }}</td>
+  <td>{{ record.zip_code }}</td>
+  <td>{{ record.date_created }}</td>
+</tr>
 {% endfor %}
 
-
-
-
 {% endif %}
+
+    
+    </tbody>
+    </table>
+
 
 <a href="{% url 'logout' %}">Logout</a>
 
